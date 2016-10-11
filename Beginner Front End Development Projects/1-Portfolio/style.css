@@ -1,0 +1,251 @@
+/*apple blue: rgb(12, 94, 219)
+Flyers orange: #F47940*/
+
+body {
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+footer {
+  background-color: rgba(192, 192, 192, 1);
+}
+
+.navbar {
+  font-size: 16px;
+  font-weight: 500;  
+  border: none;
+}
+
+.navbar-default {
+  background-color: rgba(192, 192, 192, 1);
+}
+
+.navbar .navbar-brand {
+  background-color: #999999;
+  color: black;
+}
+
+.navbar .navbar-brand:hover {
+  color: black;
+  background-color: orange;
+}
+
+
+.nav.navbar-nav.navbar-right li a {
+  color: black;
+  background: rgba(28, 28, 28, 0.1);
+}
+
+.nav.navbar-nav.navbar-right li:hover a:hover {
+  color: black;
+  background-color: orange;
+}
+
+
+.nav li {
+  display: inline;
+  color: white;
+}
+
+.home-header {
+  height: 800px;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  background: url("http://1.bp.blogspot.com/-gK3yR8hT8GE/VPn7NklgTZI/AAAAAAABOQE/sXJdDqV9Oy4/s1600/15.jpg") no-repeat center center fixed;
+  background-size: cover;
+  text-align: center;
+}
+
+.bottom-links > li {
+  margin-top: 20px;
+}
+
+.bottom-links > li > a  {
+  color: blue;
+}
+
+.bottom-links li {
+  display:inline-block;
+}
+.bottom-links li:before {
+  content: '\2022\00a0\00a0\00a0\00a0\00a0';
+  color:#999;
+  color:rgba(0,0,0,0.5);
+  font-size:11px;
+}
+.bottom-links li:first-child:before {
+  content: '';
+}
+
+p.copyright {
+  color: rgb(88, 88, 88);
+}
+
+h1 {
+  margin-top: 175px;
+  color: rgba(256, 256, 256, 1);
+  font-size: 5em;
+  text-shadow: 0 0 3px #000000;
+}
+
+h2 {
+  color: rgba(256, 256, 256, 1);
+  text-shadow: 0 0 5px orange;
+}
+
+
+hr {
+  border: 1px outset rgba(255, 255, 255, 0.2);
+  width: 50%;
+  box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+}
+
+.btn {
+  display: inline-block;
+  color: black;
+  border: 2px solid black;
+  background: #C0C0C0;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2);
+  letter-spacing: 2px;
+  transition: 0.2s;
+}
+
+.btn:hover {
+  color: white;
+  background-color: rgb(12, 94, 219);;
+  border: 2px solid black;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2);
+}
+
+.social {
+  padding: 0px;
+  vertical-align: middle;
+}
+
+ul li {
+  display: inline;
+}
+
+.btn-social {
+  float: center;
+  margin-top: 20px;
+}
+
+.txt-social {
+  margin-top: 20px;
+  font-size: 1.5em;
+  padding: 20px;
+  text-align: center;
+}
+
+.about-header {
+  background: url("http://cdn.pcwallart.com/images/yosemite-map-wallpaper-2.jpg") no-repeat center center fixed;
+  background-size: cover;
+  height: 800px;
+}
+
+h2 {
+  margin-top: 100px;
+  font-size: 40px;
+}
+
+.summary {
+  
+}
+
+.text-general {
+  padding: 20px;
+  background-color: rgba(12, 12, 12, 0.5);
+  color: white;
+  border-radius: 20px;
+}
+
+.text-container {
+  margin-top: 50px;
+}
+
+.social-text-container {
+  margin-top: 30%;
+}
+
+.summary-heading {
+  margin-top: 0px;
+}
+
+a {
+  color: white;
+}
+
+.headshot {
+  margin: 0 auto;
+  margin-top: 150px;
+  height: 250px; 
+}
+
+section {
+  background: url("http://wallpapercave.com/wp/yEpxcxZ.jpg") no-repeat center fixed;
+  background-size: cover;
+  
+}
+
+.portfolio-header {
+  text-align: center;
+  color: black;
+  margin-top: -100px;
+}
+
+.portfolio {
+  padding-bottom: 50px;
+}
+
+.project {
+  margin: 15px 0px;
+  position: relative;
+}
+
+/* https://codepen.io/felicia/pen/qKhJt?editors=1100 */
+.project-overlay {
+  background: rgba(0, 0, 0, .7);
+  position: absolute;
+  opacity: 0;
+  height: 100%;
+  width: 100%;
+  max-width: 540px;
+  -webkit-transition: opacity .35s ease;
+}
+
+.project-overlay:hover {
+  opacity: 1;
+}
+
+/* http://stackoverflow.com/questions/19219951/centering-the-image-in-bootstrap-3-0 */
+.img-center {
+  margin: auto;
+}
+
+.overlay-text {
+  color: white;
+  font-size: 20px;
+  font-weight: 500;
+  vertical-algin: middle;
+  height: 100%;
+  padding-top: 30%
+/*   position: relative;
+  top: 50%;
+  transform: translateY(-50%); */
+}
+
+.contact-header {
+  background: url("http://static.superiorwallpapers.com/images/lthumbs/2015-05/8083_The-Lord-of-the-Rings-movie-wallpaper.jpg") no-repeat center center fixed;
+  background-size: cover;
+  text-align: center;
+  height: 800px;
+}
+
+/* @media (max-width:767px) {
+  .project-overlay {
+    background: rgba(0, 0, 100, .7);
+    margin: 0 auto;
+  } */
+}
