@@ -1,0 +1,64 @@
+body {
+  background-color: #002B41; 
+  color: #E9660F;
+  font-family: "helvetica neue", "helvetica", sans-serif;
+}
+
+.random {
+  padding-top: 10px;
+}
+
+.content {
+  color: white;
+  text-align: center;
+  vertical-align: middle;
+}
+
+a, .text{
+  color: #FFF;
+  text-decoration: none;
+  font-size: 2.0em;
+}
+
+.close {
+  text-align: left;
+}
+
+#search-wikipedia input{
+  margin: 3px 1px;
+  padding: 3px 8px;
+  border: 0px;
+}
+
+.search-box {
+  font-size: 2.0em;
+  text-height: 2.0em;
+}
+
+.search-button {
+  border-radius: 1px;
+  border: 0px;
+  background-color: #FFF;
+  font-size: 2.0em;
+}
+
+.result-options {
+  font-size: 1.0em;
+  background-color: #FFF;
+  border: 0px;
+  outline: 0px;
+}
+
+.result {
+  font-size: 0.6  em;
+  text-align: left;
+  width: 80%;
+  color: #000;
+  background-color: #FFF;
+  margin: auto;
+  padding: 0px 10px;
+}
+
+.snippet {
+  padding: 0px 0px 10px 0px;
+}
