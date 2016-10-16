@@ -30,23 +30,22 @@ function updateColor() {
 }
 
 function addIcon(current) {
-  console.log(current);
-  // current = "clear-sky";
+  current = "light-rain";
   if (current === "clear-sky") {
-    $(".report-icon").html("<i class='fa fa-sun-o fa-fw'></i>");
+    $(".report-icon").html("<i class='wi wi-day-sunny'></i>");
     $("body").animate({
       backgroundColor: "#1192d3",
     }, transition);
     $(".content").animate({
-      // color: "yellow"
+      color: "#FFF"
     }, transition);
     $(".temp").animate({
       backgroundColor: "#FFF", 
     })
   }
-  else if (current === "scattered-clouds") {
-    $(".report-icon").html("<i class='fa fa-cloud fa-fw'></i>");
-    $(".report-icon").css("opacity", "0.3");
+  else if (current === "broken-clouds" || current === "few-clouds" || current === "overcast-clouds" || current === "partly-cloudy" || current === "scattered-clouds") {
+    $(".report-icon").html("<i class='wi wi-day-cloudy'></i>");
+    // $(".report-icon").css("opacity", "0.8");
     $("body").animate({
       backgroundColor: "#777",
     }, transition);
@@ -58,16 +57,19 @@ function addIcon(current) {
     })
   }
   else if (current === "sunny") {
-    $(".report-icon").html("<i class='fa fa-sun-o fa-fw'></i>");
+    $(".report-icon").html("<i class='wi wi-day-sunny'></i>");
     $("body").animate({
-      backgroundColor: "#000",
+      backgroundColor: "#1192d3",
     }, transition);
     $(".content").animate({
       color: "yellow"
     }, transition);
+    $(".temp").animate({
+      backgroundColor: "yellow", 
+    });
   }
   else if (current === "mostly-cloudy") {
-    $(".report-icon").html("<i class='fa fa-cloud fa-fw'></i><i class='fa fa-cloud fa-fw'></i><i class='fa fa-cloud fa-fw'></i>");
+    $(".report-icon").html("<i class='wi wi-cloudy'></i>");
     $("body").animate({
       backgroundColor: "#222",
     }, transition);
@@ -75,8 +77,16 @@ function addIcon(current) {
       color: "#d0e2ed"
     }, transition);
   }
-  else if (current === "partly-cloudy") {
-    $(".report-icon").html("<i class='fa fa-cloud fa-fw'></i><i class='fa fa-sun-o fa-fw'></i><i class='fa fa-cloud fa-fw'></i>");
+  else if (current.match(/rain/)) {
+    if (current === "light-rain") {
+      $(".report-icon").html("<i class='wi wi-showers'>");
+    }
+    else if (current === "moderate-rain") {
+      $(".report-icon").html("<i class='wi wi-rain-mix'>");
+    }
+    else {
+      $(".report-icon").html("<i class='wi wi-rain'>");
+    }
     $("body").animate({
       backgroundColor: "#333",
     }, transition);
@@ -87,11 +97,12 @@ function addIcon(current) {
 }
 
 function describe(current) {
+  // console.log(current);
   if (current === "clear sky") {
     return "with a clear sky";
   }
-  else if (current === "scattered clouds") {
-    return "with scattered clouds";
+  else if (current.match(/clouds/) || current.match(/rain/)) {
+    return "with " + current;
   }
 }
 
@@ -99,22 +110,21 @@ $(document).ready(function() {
   $.getJSON("http://ip-api.com/json?fields=city,lat,lon,region,regionName", function(response) {
     var lat = response.lat;
     var lon = response.lon;
-    // lat = 12;
-    // lon = 23;
     var region = response.region;
     $.getJSON("http://api.openweathermap.org/data/2.5/weather?units=metric&lat=" + lat + "&lon=" + lon + "&appid=" + key, function(response) {
-    // $.getJSON("http://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + lon + "&appid=" + key, function(response) {
-      console.log(response);
-      console.log(response.main );
+      // console.log(response);
+      // console.log(response.main);
       $(".loading").hide();
       $(".report").show();
       tempC = response.main.temp;
       tempF = tempC * 9 / 5 + 32;
       updateColor();
       var current = response.weather[0].description;
-      var description = describe(current);
+      // current = "a loud";
+      var description = describe(current) + "<br>";
       $('.weather').html(description);
       current = (current.replace(" ", "-"));
+      // console.log(current);
       addIcon(current);
       // $(".report-image").addClass(current);
       $('.city').html(response.name + ", " + region);
@@ -136,4 +146,22 @@ $(document).ready(function() {
       });
     });
   })
+  // randomLocations();
 });
+
+// used to get weather from a variety of locations using random latatiude and longitudes
+function randomLocations() {
+  var descriptions = [];   
+  for (var i = 0; i < 10000; i ++) {
+    var lat = Math.round(Math.random() * 180 - 90);
+    var lon = Math.round(Math.random() * 360 - 180);
+    $.getJSON("http://api.openweathermap.org/data/2.5/weather?units=metric&lat=" + lat + "&lon=" + lon + "&appid=" + key, function(response) {
+      var current = response.weather[0].description;
+      if (descriptions.indexOf(current) === -1) {
+        descriptions.push(current);
+        console.log(current);
+      }
+    });
+  } 
+}
+
