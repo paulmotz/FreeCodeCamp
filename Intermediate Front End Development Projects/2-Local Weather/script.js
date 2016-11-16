@@ -30,7 +30,7 @@ function updateColor() {
 }
 
 function addIcon(current) {
-  current = "light-rain";
+  // current = "light-rain";
   if (current === "clear-sky") {
     $(".report-icon").html("<i class='wi wi-day-sunny'></i>");
     $("body").animate({
@@ -120,13 +120,10 @@ $(document).ready(function() {
       tempF = tempC * 9 / 5 + 32;
       updateColor();
       var current = response.weather[0].description;
-      // current = "a loud";
       var description = describe(current) + "<br>";
       $('.weather').html(description);
       current = (current.replace(" ", "-"));
-      // console.log(current);
       addIcon(current);
-      // $(".report-image").addClass(current);
       $('.city').html(response.name + ", " + region);
       if (C) {
         $(".temp").html(Math.round(tempC) + " &#8451");
@@ -152,7 +149,7 @@ $(document).ready(function() {
 // used to get weather from a variety of locations using random latatiude and longitudes
 function randomLocations() {
   var descriptions = [];   
-  for (var i = 0; i < 10000; i ++) {
+  for (var i = 0; i < 1000; i ++) {
     var lat = Math.round(Math.random() * 180 - 90);
     var lon = Math.round(Math.random() * 360 - 180);
     $.getJSON("http://api.openweathermap.org/data/2.5/weather?units=metric&lat=" + lat + "&lon=" + lon + "&appid=" + key, function(response) {
